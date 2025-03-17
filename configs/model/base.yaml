@@ -1,0 +1,32 @@
+defaults:
+  - layer: pSpikeSSM
+
+_name_: model
+prenorm: true
+transposed: false
+#M in the paper
+n_layers: 2 #2
+# n in the paper
+d_model: 400   #256
+bidirectional: true
+residual: R
+pool:
+  _name_: pool
+  stride: 1
+  expand: null
+norm: batch
+dropout: 0.05
+tie_dropout: false
+track_norms: true # Logs to wandb
+# details of each S6 neuron layer. n_ssm = null means all neurons have independent dynamics and 1 means dynamics is tied to layer.
+layer:
+  d_state: 64
+  lr: 0.001
+  dt_min: 0.001
+  dt_max: 0.1
+  init: legs
+  bidirectional: true
+  n_ssm: 1
+
+encoder: null
+decoder: null
