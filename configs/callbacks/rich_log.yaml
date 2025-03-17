@@ -1,0 +1,3 @@
+rich_progress_bar:
+  refresh_rate: 1
+  leave: true # Set to True to leave progress bar up after every epoch

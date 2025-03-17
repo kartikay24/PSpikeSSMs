@@ -1,0 +1,47 @@
+# @package _global_
+defaults:
+  - /pipeline: imdb
+  - /model: pSpikeSSM
+  - override /scheduler: cosine_warmup
+
+decoder:
+  mode: pool
+
+model:
+  dropout: 0.05
+  n_layers: 4
+  d_model: 128
+  prenorm: true
+  norm: batch
+  layer:
+    d_state: 16
+    lr:
+      dt: null
+      A: 0.001
+      B: 0.001
+    dt_min: 0.001
+    dt_max: 0.1
+    init: legs
+    bidirectional: true
+    n_ssm: 1
+
+dataset:
+  l_max: 4096
+  level: char
+
+loader:
+  batch_size: 32 #16
+
+optimizer:
+  lr: 0.005 #0.0005
+  weight_decay: 0.05 #0.05
+
+scheduler:
+  num_training_steps: 50000
+  num_warmup_steps: 5000
+
+trainer:
+  max_epochs: 200
+
+train:
+  seed: 64
