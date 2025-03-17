@@ -37,7 +37,7 @@ This repository aims to provide a very flexible framework for training P-SpikeSS
 
 The basic entrypoint is `python -m train`, for example,
 ```
-python -m train pipeline=mnist model=pSpikeSSM
+python -m train experiment=lra/pSpikeSSM-mnist
 ```
 This trains the pSpikeSSM model on the psMNIST dataset. Hyperparameters can also be modified in configs/model/base.yaml or added in configs/model/pSpikeSSM.yaml
 
