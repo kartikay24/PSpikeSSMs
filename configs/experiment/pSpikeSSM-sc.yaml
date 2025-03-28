@@ -1,0 +1,31 @@
+# @package _global_
+defaults:
+  - /pipeline: sc
+  - /model: pSpikeSSM
+
+model:
+  dropout: 0.1
+  n_layers: 1
+  d_model: 100 #400
+  prenorm: true
+  norm: batch
+  residual: null
+  pool: null
+  bidirectional: false
+  layer:
+    d_state: 16 #64
+    lr:
+      dt: null
+      A: 0.001
+      B: 0.001
+    dt_min: 0.001
+    dt_max: 0.1
+    init: legs
+    bidirectional: true
+    n_ssm: 1
+
+trainer:
+  max_epochs: 10 #200
+
+train:
+  seed: 64
